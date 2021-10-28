@@ -1,0 +1,15 @@
+:host ::ng-deep .p-dropdown {
+    width: 14rem;
+}
+
+:host ::ng-deep .p-treeselect{
+    width: 14rem;
+}
+ 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+  }
