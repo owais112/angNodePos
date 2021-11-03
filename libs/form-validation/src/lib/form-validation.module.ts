@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MainComponent } from './main.component';
 import {PanelModule} from 'primeng/panel';
 import {DropdownModule} from 'primeng/dropdown';
 import {TreeSelectModule} from 'primeng/treeselect';
-import { MainService } from './main.service';
 import {TableModule} from 'primeng/table';
+import { FormValidationComponent } from 'libs/form-validation/src/public-api';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 @NgModule({
   declarations: [
-    MainComponent
+    FormValidationComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -20,11 +22,14 @@ import {TableModule} from 'primeng/table';
     PanelModule,
     DropdownModule,
     TreeSelectModule,
-    TableModule
+    ButtonModule,
+    InputTextModule,
+    CheckboxModule
   ],
   exports: [
-    MainComponent
+    FormValidationComponent
   ],
-  providers: [ MainService ]
+  providers: [  ]
 })
-export class MainModule { }
+export class FormValidationModule { }
+

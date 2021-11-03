@@ -11,7 +11,8 @@ import { RouterModule } from '@angular/router';
 import { MainModule } from 'libs/main/src/public-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PanelModule} from 'primeng/panel';
-
+import {TabViewModule} from 'primeng/tabview';
+import { FormValidationModule } from 'libs/form-validation/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,9 +23,11 @@ import {PanelModule} from 'primeng/panel';
     CoreModule,
     SharedModule,
     MainModule,
+    FormValidationModule,
     RouterModule.forRoot(AppRoutes),
     BrowserAnimationsModule,
-    PanelModule
+    PanelModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

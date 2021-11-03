@@ -10,3 +10,8 @@ export interface Product {
     image?:string;
     rating?:number;
 }
+
+export interface City {
+    name: string,
+    code: string
+  }

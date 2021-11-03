@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MainService} from './main.service';
-import { Product } from './main.model';
-
-interface City {
-  name: string,
-  code: string
-}
+import { City, Product } from './main.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'lib-main',
@@ -22,7 +18,10 @@ export class MainComponent implements OnInit {
 
   products: Product[];
 
-  constructor(public nodeService: MainService) { 
+  mainForm: FormGroup;
+
+  constructor(public nodeService: MainService,
+    private formBuilder: FormBuilder) { 
     this.cities = [
       {name: 'New York', code: 'NY'},
       {name: 'Rome', code: 'RM'},
@@ -32,10 +31,21 @@ export class MainComponent implements OnInit {
   ];
   this.nodeService.getFiles().then(files => this.nodes = files)
   this.nodeService.getProductsSmall().then(data => this.products = data);
+  this.createForm();
   }
 
   ngOnInit(): void {
   }
+
+  /**
+   * createForm
+   */
+  public createForm() {
+    this.mainForm = this.formBuilder.group({
+      selectedCity: ['', [Validators.required]],
+      selectedNode: ['', [Validators.required]]
+    })
+  };
 
   onChangeCities(){}
 

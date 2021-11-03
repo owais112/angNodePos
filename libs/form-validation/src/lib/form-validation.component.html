@@ -1,0 +1,120 @@
+<div class="flex-container">
+    <div class="p-col-12">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <label for="input">FullName</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText id="fullName" type="text" formControlName="fullName" 
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.fullName.errors }" />
+                    <div *ngIf="isSubmitted && f.fullName.errors">
+                        <div *ngIf="f.fullName.errors.required">
+                            <small class="p-error">Fullname is not available.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <label for="input">UserName</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText type="text" formControlName="userName"
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.userName.errors }" />
+                    <div *ngIf="isSubmitted && f.userName.errors" class="invalid-feedback">
+                        <div *ngIf="f.userName.errors.required">
+                            <small class="p-error">Username is not available.</small>
+                        </div>
+                        <div *ngIf="f.userName.errors.minlength">
+                            <small class="p-error">Username must be at least 6 characters.</small>
+                        </div>
+                        <div *ngIf="f.userName.errors.maxlength">
+                            <small class="p-error">Username must not exceed 20 characters.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <label for="input">Email</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText type="text" formControlName="email"
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.email.errors }" />
+                    <div *ngIf="isSubmitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">
+                            <small class="p-error">Email is required.</small>
+                        </div>
+                        <div *ngIf="f.email.errors.email">
+                            <small class="p-error">Email is invalid.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <label for="input">Password</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText type="password" formControlName="password"
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.password.errors }" />
+                    <div *ngIf="isSubmitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">
+                            <small class="p-error">Password is required.</small>
+                        </div>
+                        <div *ngIf="f.password.errors.minlength">
+                            <small class="p-error">Password must be at least 6 characters.</small>
+                        </div>
+                        <div *ngIf="f.password.errors.maxlength">
+                            <small class="p-error">Password must not exceed 40 characters.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <label for="input">Confirm Password</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText type="password" formControlName="confirmPassword"
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.confirmPassword.errors }" />
+                    <div *ngIf="isSubmitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">
+                            <small class="p-error">Confirm Password is required.</small>
+                        </div>
+                        <div *ngIf="f.confirmPassword.errors.matching">
+                            <small class="p-error">Confirm Password does not match.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid" style="margin-bottom: 1em;">
+                <div class="p-col-12 p-md-2">
+                    <!-- <label for="input">Checkbox</label> -->
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <p-checkbox [binary]="true" formControlName="acceptTerms"
+                        [ngClass]="{ 'ng-invalid ng-dirty': isSubmitted && f.acceptTerms.errors }">
+                    </p-checkbox>
+                    <label style="margin-left: 1em;">I have read and agree to the Terms. </label>
+                    <div *ngIf="isSubmitted && f.acceptTerms.errors">
+                        <small class="p-error">Accept Terms is required.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1em !important;">
+                <button pButton type="submit" label="Register"></button>
+                <button pButton type="button" label="Reset" style="margin-left :2em" (click)="onReset()"
+                    class="p-button-warning"></button>
+            </div>
+        </form>
+    </div>
+</div>

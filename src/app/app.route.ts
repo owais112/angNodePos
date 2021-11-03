@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
+import { FormValidationComponent } from 'libs/form-validation/src/public-api';
 import { MainComponent } from 'libs/main/src/public-api';
 import { AppComponent } from './app.component';
 
-
 export const AppRoutes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'heroes',        component: AppComponent },
-  // { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: AppComponent },
+  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: MainComponent },
+  { path: 'form-validation',        component: FormValidationComponent },
   {
     path: '',
     component: MainComponent,
@@ -23,19 +23,4 @@ export const AppRoutes: Routes = [
       }
     ]
   }
-  // {
-  //    path: '',
-  //    component: BlankComponent,
-  //    children: [
-  //     {
-  //       path: '',
-  //       loadChildren:
-  //         () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '**',
-  //   redirectTo: '/404'
-  // }
 ];
